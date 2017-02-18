@@ -3,7 +3,7 @@ Plain widgets pack for AwesomeWM 4
 
 ## Install
 
-Install via luarocks:
+Install with luarocks:
 ```bash
 sudo luarocks install plain
 ```
@@ -47,9 +47,9 @@ awful.screen.connect_for_each_screen(function(s)
 end)
 ```
 
-## Test widget
+## Try widget
 
-You can check the widgets in lua console first:
+You can try any widget calling it manually:
 ```bash
 $ lua
 Lua 5.3.4  Copyright (C) 1994-2017 Lua.org, PUC-Rio
