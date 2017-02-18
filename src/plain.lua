@@ -4,7 +4,7 @@
 -- @release 1.0.0
 ---------------------------------------------------------------------------
 
-pcall(function() local wibox = require('wibox') end)
+pcall(function() wibox = require('wibox') end)
 
 return {
   widget = {

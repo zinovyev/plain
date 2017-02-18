@@ -14,7 +14,12 @@ local Widget = { proto = {} }
 -- @return A widget instance.
 function Widget:new()
   local instance = {}
-  setmetatable(instance, { __index = self, __call = self.get_widget })
+  setmetatable(instance, {
+    __index = self,
+    __call = function()
+      return instance:get_widget()
+    end,
+  })
   instance.wibox = self.proto.wibox
   instance:init()
 
