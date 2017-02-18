@@ -1,8 +1,8 @@
 package = "plain"
-version = "0.1-1"
+version = "0.1.1-1"
 source = {
    url = "git://github.com/zinovyev/plain",
-   tag = "v0.1",
+   tag = "v0.1.1",
 }
 description = {
    homepage = "https://github.com/zinovyev/plain",
