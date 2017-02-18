@@ -1,7 +1,8 @@
 package = "plain"
 version = "scm-1"
 source = {
-   url = "https://github.com/zinovyev/plain/archive/master.zip"
+   url = "git://github.com/zinovyev/plain",
+   tag = "v0.1",
 }
 description = {
    homepage = "https://github.com/zinovyev/plain",
