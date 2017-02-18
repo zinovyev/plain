@@ -3,6 +3,7 @@ Plain widgets pack for AwesomeWM 4
 
 ## Install
 
+Install via luarocks:
 ```bash
 sudo luarocks install plain
 ```
@@ -10,7 +11,6 @@ sudo luarocks install plain
 ## Set Up
 
 In your `rc.lua`:
-
 ```lua
 local plain = require('plain')
 
@@ -45,4 +45,20 @@ awful.screen.connect_for_each_screen(function(s)
         },
     }
 end)
+```
+
+## Test widget
+
+You can check the widgets in lua console first:
+```bash
+$ lua
+Lua 5.3.4  Copyright (C) 1994-2017 Lua.org, PUC-Rio
+> plain = require('plain')
+> battery = plain.widget:battery()
+> battery:get_status()
+nil
+> battery:refresh()
+table: 0x2205440
+> battery:get_status()
+FULL 100%
 ```
