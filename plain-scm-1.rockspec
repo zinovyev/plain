@@ -1,10 +1,10 @@
 package = "plain"
 version = "scm-1"
 source = {
-   url = "*** please add URL for source tarball, zip or repository here ***"
+   url = "https://github.com/zinovyev/plain/archive/master.zip"
 }
 description = {
-   homepage = "*** please enter a project homepage ***",
+   homepage = "https://github.com/zinovyev/plain",
    license = "MIT"
 }
 dependencies = {}
