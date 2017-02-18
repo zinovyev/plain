@@ -15,5 +15,12 @@ return {
 
       return battery
     end,
+    separator = function(value)
+      Separator = require('plain.widgets.separator')
+      Separator:set_proto { wibox = wibox }
+      separator = Separator:new(value) 
+
+      return separator
+    end,
   }
 }

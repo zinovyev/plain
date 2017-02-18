@@ -13,7 +13,8 @@ build = {
    type = "builtin",
    modules = {
       plain = "src/plain.lua",
+      ["plain.widgets.widget"] = "src/widgets/widget.lua",
       ["plain.widgets.battery"] = "src/widgets/battery.lua",
-      ["plain.widgets.widget"] = "src/widgets/widget.lua"
+      ["plain.widgets.separator"] = "src/widgets/separator.lua",
    }
 }

@@ -12,7 +12,7 @@ local Widget = { proto = {} }
 
 --- Create new widget.
 -- @return A widget instance.
-function Widget:new()
+function Widget:new(...)
   local instance = {}
   setmetatable(instance, {
     __index = self,
@@ -21,7 +21,7 @@ function Widget:new()
     end,
   })
   instance.wibox = self.proto.wibox
-  instance:init()
+  instance:init(...)
 
   return instance 
 end
@@ -55,7 +55,6 @@ end
 
 --- Refresh widget status.
 function Widget:refresh()
-  self.status = nil
 end
 
 --- Refresh widget status.
