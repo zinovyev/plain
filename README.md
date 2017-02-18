@@ -12,7 +12,7 @@ sudo luarocks install plain
 In your `rc.lua`:
 
 ```lua
-local plain = require('plain1')
+local plain = require('plain')
 
     -- ...
 
