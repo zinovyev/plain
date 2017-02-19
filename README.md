@@ -47,7 +47,7 @@ awful.screen.connect_for_each_screen(function(s)
 end)
 ```
 
-## Try widget
+## Call manually
 
 You can try any widget calling it manually:
 ```bash
