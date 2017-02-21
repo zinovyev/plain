@@ -15,6 +15,13 @@ return {
 
       return battery
     end,
+    brightness = function()
+      Brightness = require('plain.widgets.brightness')
+      Brightness:set_proto { wibox = wibox }
+      brightness = Brightness:new()
+
+      return brightness 
+    end,
     separator = function(value)
       Separator = require('plain.widgets.separator')
       Separator:set_proto { wibox = wibox }
