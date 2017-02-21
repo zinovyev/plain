@@ -22,6 +22,13 @@ return {
 
       return brightness 
     end,
+    volume = function()
+      Volume = require('plain.widgets.volume')
+      Volume:set_proto { wibox = wibox }
+      volume = Volume:new()
+
+      return volume
+    end,
     separator = function(value)
       Separator = require('plain.widgets.separator')
       Separator:set_proto { wibox = wibox }

@@ -17,5 +17,6 @@ build = {
       ["plain.widgets.battery"] = "src/widgets/battery.lua",
       ["plain.widgets.separator"] = "src/widgets/separator.lua",
       ["plain.widgets.brightness"] = "src/widgets/brightness.lua",
+      ["plain.widgets.volume"] = "src/widgets/volume.lua",
    }
 }

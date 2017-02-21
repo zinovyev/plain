@@ -6,14 +6,14 @@
 
 local Widget = require('plain.widgets.widget')
 
---- Brightness widget.
--- plain.widget.brightness
-local Brightness = {}
-setmetatable(Brightness, { __index = Widget })
+--- Volume widget.
+-- plain.widget.volume
+local Volume = {}
+setmetatable(Volume, { __index = Widget })
 
 --- Init base values and actions.
 -- @return A widget instance.
-function Brightness:init()
+function Volume:init()
   self:start_timer(5, function()
     self:refresh()
     self:redraw()
@@ -21,11 +21,11 @@ function Brightness:init()
 end
 
 --- Refresh battery status.
-function Brightness:refresh()
-  local fh = io.popen("xbacklight -get | awk '{print \"LGT \" int($0) \"%\"}' ", "r")
+function Volume:refresh()
+  local fh = io.popen("amixer get Master | grep '%' | head -1 | awk -F'[][]' '{status = \"MUTE\"; if ($4 == \"on\") { status = \"VOL\" } else {}; print status\" \"$2}'", "r")
   self.status = fh:read("*l") or 'Unknown'
 
   return self
 end
 
-return Brightness 
+return Volume 
