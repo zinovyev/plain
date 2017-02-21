@@ -1,6 +1,17 @@
 # plain
 Plain widgets pack for AwesomeWM 4
 
+## About
+Simple plain text widgets set for AwesomeWM and a framework for building them.
+You'll love it if you like simple user interfaces as me.
+
+Ccontains thouse widgets:
+
+* _Battery_ widget: `plain.widget.battery()`;
+* _Backlight controll_ widget: `plain.widget.backlight()`;
+* _Volume controll_ widget: `plain.widget.volume()`;
+* _Seprator_ (text widget): `plain.widget.separator()`;
+
 ## Install
 
 Install with luarocks:
