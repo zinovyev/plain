@@ -8,12 +8,15 @@ local Widget = require('plain.widgets.widget')
 
 --- Volume widget.
 -- plain.widget.volume
-local Volume = {}
+local Volume = {
+  step = 3
+}
 setmetatable(Volume, { __index = Widget })
 
 --- Init base values and actions.
 -- @return A widget instance.
 function Volume:init()
+  self:mouse_events(true)
   self:start_timer(5, function()
     self:refresh()
     self:redraw()
@@ -26,6 +29,18 @@ function Volume:refresh()
   self.status = fh:read("*l") or 'Unknown'
 
   return self
+end
+
+function Volume:mouse_click()
+  os.execute('amixer set Master toggle')
+end
+
+function Volume:mouse_up()
+  os.execute('amixer set Master ' .. tonumber(self.step) .. '%+')
+end
+
+function Volume:mouse_down()
+  os.execute('amixer set Master ' .. tonumber(self.step) .. '%-')
 end
 
 return Volume 

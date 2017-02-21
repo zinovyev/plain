@@ -4,11 +4,23 @@
 -- @release 1.0.0
 ---------------------------------------------------------------------------
 
+naughty = require('naughty')
 local capi = { timer = timer }
 
 --- Base plain widget.
 -- plain.widget.widget
-local Widget = { proto = {} }
+local Widget = {
+  MOUSE_CLICK = 1,
+  MOUSE_SCROLL_UP = 4,
+  MOUSE_SCROLL_DOWN = 5,
+  PROTO = {},
+}
+
+--- Define a prototype.
+-- Should be called as a static method: Widget.__proto.
+function Widget.__proto(proto)
+  Widget.PROTO.wibox = proto.wibox
+end
 
 --- Create new widget.
 -- @return A widget instance.
@@ -20,21 +32,27 @@ function Widget:new(...)
       return instance:get_widget()
     end,
   })
-  instance.wibox = self.proto.wibox
   instance:init(...)
-
+  
   return instance 
 end
 
+
 --- Init base values and actions.
--- @return A widget instance.
 function Widget:init()
   return true
 end
 
---- Define a prototype.
-function Widget:set_proto(proto)
-  self.proto.wibox = proto.wibox
+--- Mouse click callback 
+function Widget:mouse_click()
+end
+
+--- Mouse scroll up callback
+function Widget:mouse_up()
+end
+
+--- Mouse scroll down callback
+function Widget:mouse_down()
 end
 
 --- Create a timer for repeating actions.
@@ -44,6 +62,32 @@ function Widget:start_timer(timeout, callback)
     timer:connect_signal('timeout', callback)
     timer:start()
     timer:emit_signal('timeout')
+  end
+end
+
+--- Initialize mouse events
+function Widget:mouse_events(enable)
+  if enable then
+    widget = self:get_widget()
+    if widget then
+      widget:connect_signal('button::press', function(_tbl, _lx, _ly, button)
+        if Widget.MOUSE_CLICK == button then
+          event = true
+          self:mouse_click()
+        elseif Widget.MOUSE_SCROLL_UP == button then
+          event = true
+          self:mouse_up()
+        elseif Widget.MOUSE_SCROLL_DOWN  == button then
+          event = true
+          self:mouse_down()
+        end
+
+        if event then
+          self:refresh()
+          self:redraw()
+        end
+      end)
+    end
   end
 end
 
@@ -66,12 +110,12 @@ end
 
 --- Get widget instance.
 function Widget:get_widget()
-  if nil == self.widget and self.wibox then
-    self.widget = self.wibox.widget{
+  if nil == self.widget and Widget.PROTO.wibox then
+    self.widget = Widget.PROTO.wibox.widget{
       markup = self.status,
       align  = 'center',
       valign = 'center',
-      widget = self.wibox.widget.textbox
+      widget = Widget.PROTO.wibox.widget.textbox
     }
   end
 
