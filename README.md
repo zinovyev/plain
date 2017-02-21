@@ -2,6 +2,9 @@
 Plain widgets pack for AwesomeWM 4
 
 ## About
+
+![awesome panel with plain widgets](../docs/images/panel.png "plain widgets")
+
 Simple plain text widgets set for AwesomeWM and a framework for building them.
 You'll love it if you like simple user interfaces as me.
 
