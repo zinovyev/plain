@@ -22,6 +22,10 @@ Install with luarocks:
 sudo luarocks install plain
 ```
 
+Nessesary packages are:
+* `xbacklight` is needed for backlight widget to work;
+* `alsa-utils` for volume widget to work;
+
 ## Set Up
 
 In your `rc.lua`:

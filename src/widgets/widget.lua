@@ -4,7 +4,6 @@
 -- @release 1.0.0
 ---------------------------------------------------------------------------
 
-naughty = require('naughty')
 local capi = { timer = timer }
 
 --- Base plain widget.

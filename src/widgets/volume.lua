@@ -25,7 +25,7 @@ end
 
 --- Refresh battery status.
 function Volume:refresh()
-  local fh = io.popen("amixer get Master | grep '%' | head -1 | awk -F'[][]' '{status = \"MUTE\"; if ($4 == \"on\") { status = \"VOL\" } else {}; print status\" \"$2}'", "r")
+  local fh = io.popen("amixer get Master | grep '%' | head -1 | awk -F'[][]' '{status = \"MUTE\"; if ($4 == \"on\" || $6 == \"on\") { status = \"VOL\" } else {}; print status\" \"$2}'", "r")
   self.status = fh:read("*l") or 'Unknown'
 
   return self
