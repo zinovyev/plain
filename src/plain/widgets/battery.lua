@@ -4,7 +4,7 @@
 -- @release 1.0.0
 ---------------------------------------------------------------------------
 
-local Widget = require('widgets.widget')
+local Widget = require('plain.widgets.widget')
 
 --- Battery widget.
 -- plain.widget.battery

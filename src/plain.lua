@@ -6,25 +6,25 @@
 
 pcall(function() wibox = require('wibox') end)
 
-Widget = require 'widgets.widget'
+Widget = require 'plain.widgets.widget'
 Widget.__proto { wibox = wibox }
 
 return {
   widget = {
     battery = function()
-      Battery = require('widgets.battery')
+      Battery = require('plain.widgets.battery')
       return Battery:new()
     end,
     brightness = function()
-      Brightness = require('widgets.brightness')
+      Brightness = require('plain.widgets.brightness')
       return Brightness:new() 
     end,
     volume = function()
-      Volume = require('widgets.volume')
+      Volume = require('plain.widgets.volume')
       return Volume:new()
     end,
     separator = function(value)
-      Separator = require('widgets.separator')
+      Separator = require('plain.widgets.separator')
       return Separator:new(value)
     end,
   }
